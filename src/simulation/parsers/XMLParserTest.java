@@ -1,12 +1,12 @@
-package simulation;
+package simulation.parsers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+
 import java.io.File;
 import java.nio.file.Path;
 
-import static org.custommonkey.xmlunit.XMLAssert.assertXMLEqual;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class XMLParserTest {
@@ -23,9 +23,11 @@ class XMLParserTest {
     @BeforeEach
     public void setup(@TempDir Path tempDir) {
 
-            configPath = tempDir.resolve(CONFIG_FILE);
+            //configPath = tempDir.resolve(CONFIG_FILE_PATH);
 
-            xmlParser = new XMLParser(configPath.toFile());
+            selectedFile = new File(CONFIG_FILE_PATH);
+
+            xmlParser = new XMLParser(selectedFile);
     }
 
     @Test
@@ -56,7 +58,7 @@ class XMLParserTest {
                         + "<icone type=\"deux-tiers\" path=\"src/ressources/UMP66%.png\"/>"
                         + "<icone type=\"plein\" path=\"src/ressources/UMP100%.png\"/>"
                         + "</icones>"
-                        + "<sorite type = \"metal\" />"
+                        + "<sortie type = \"metal\" />"
                         + "<interval-production>100</interval-production>"
                         + "</usine>"
                         + "</metadonnees>"

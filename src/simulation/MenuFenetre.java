@@ -1,5 +1,7 @@
 package simulation;
 
+import simulation.parsers.XMLParser;
+
 import java.awt.event.ActionEvent;
 import java.io.File;
 
